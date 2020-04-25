@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Formulario</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form name="FormaularioBase" action="http://localhost:8080/Ejercicio1/ServerletEjercicio1" method="post" >
+            <H2>CAPTURA DE DATOS</H2>
+        <font face="Arial">
+        <br>
+        <table border="2">
+
+            <tr>
+                <td>Nombres </td>
+                <td><input name="nombre" type="text"   id="nombre" size="25" title="nombre"></td>
+            </TR>
+            <tr>
+                <td>Apellidos </td>
+                <td><input name="apellido" type="text" id="apellido" size="25" title="apellido"></td>
+            </TR>
+            <tr>
+                <td>Cedula</td>
+                <td><input name="cedula"        type="text"   id="cedula"    size="50" title="c�dula"></td>
+            </TR>
+            <tr>
+                <td>Contraseña</td>
+                <td><input name="password" type="password"  id="password"  size="20" title="CLAVE"></td>
+            </TR>
+            <tr>
+                <td>Confirmar contraseña</td>
+                <td><input name="password1" type="password"  id="password1"  size="20" title="CLAVE1"></td>
+            </TR>
+            <tr>
+                <td>Fecha Nacimiento </td>
+                <td><input name="FechaNacimiento" type="date"  id="FechaNacimiento"  size="50" title="FechaNacimiento"></td>
+            </TR>
+
+            <tr>
+                <td>Genero</td>
+                <td>
+                    Masculino:<input type="radio" name="genero" id="genero" value="1"><br>
+                    Femenino:<input type="radio" name="genero" id="genero" value="2"><br>
+                </td>
+            </TR>
+            <tr>
+                <td>Mensaje</td>
+                <td><textarea name="mensaje" rows="10" cols="40"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Enviar"></td>
+                <td></td>
+            </tr>
+        </table>
+    </form>   
+</body>
+</html>
