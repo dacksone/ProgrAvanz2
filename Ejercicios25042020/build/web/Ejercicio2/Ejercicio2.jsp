@@ -163,7 +163,10 @@
                                 out.println(formato1.format(Promedio));                            
                             %>
                         </td>
-                        <!-- Estado -->
+                        <!-- Estado 
+                        si el valor es mayor a 7.5 es aprobado
+                        Si el valor es menor -> desaprobado
+                        -->
                         <td>
                             <%
                                 if (Promedio >= 7.5){
