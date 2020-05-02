@@ -11,39 +11,41 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <FORM name="form1"  ACTION ="notas.jsp" METHOD="POST">
- <H2>CAPTURA DE DATOS</H2>
- <font face="Arial"> 
-   <br>
-   <br>	   
-   <table border="1">
-   <tr>	
-	<td>CODIGO</td>       
-	<td><input name="codigo"        type="text"   id="codigo"    size="50" title="cèdula"></td>
-	</TR> 
-	<tr>       	
-	<td>Apellidos</td>
-	<td><input name="apellidos" type="text"  id="apellidos"  size="20" title="CLAVE"></td>
-	</TR>  	
-	<tr>       	
-	<td>Nombres</td>
-	<td><input name="nombres" type="text"  id="nombres"  size="20" title="CLAVE1"></td>
-	</TR>  	
-<tr>
-	<td>Telefono</td>
-	<td><input name="telefono" type="text"  id="telefono"> </td>
-</tr>
-<tr>
-	<td>Correo</td>
-	<td><input name="correo" type="text"  id="correo"> </td>
-</tr>
-<tr>
-	<td><input type="submit" value="Enviar"></td>
-	<td></td>
-</tr>
-    </table>
-   </FORM>
-    <br>
-    <a href="index.html">Regresar al Menu </a>
+        <FORM name="form1"  ACTION ="notas.jsp" METHOD="POST" >
+            <H2>CAPTURA DE DATOS - NOTAS</H2>
+            <font face="Arial"> 
+            <br>
+            <br>	   
+            <table border="1">
+                <tr>	
+                    <td>Codigo de materia</td>       
+                    <td><input name="Codigo" type="text"   id="Codigo"    size="50" title="Codigo"></td>
+                </TR> 
+                <tr>       	
+                    <td>Nombre Materia</td>
+                    <td><input name="Nombre" type="text"  id="Nombre"  size="20" title="Nombre"></td>
+                </TR>  	
+                <tr>       	
+                    <td>Nota 1 Corte</td>
+                    <td><input name="Nota1" type="numeric"  id="Nota1"  size="20" title="Nota1"></td>
+                </tr>
+                <tr>       	
+                    <td>Nota 2 Corte</td>
+                    <td><input name="Nota2" type="numeric"  id="Nota2"  size="20" title="Nota2"></td>
+                </tr> 
+                <tr>       	
+                    <td>Nota 3 Corte</td>
+                    <td><input name="Nota3" type="numeric"  id="Nota3"  size="20" title="Nota3"></td>
+                </tr> 
+                
+                
+                <tr>
+                    <td><input type="submit" value="Enviar"></td>
+                    <td></td>
+                </tr>
+            </table>
+        </FORM>
+        <br>
+        <a href="index.html">Regresar al Menu </a>
     </body>
 </html>
