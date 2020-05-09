@@ -4,7 +4,35 @@
     Author     : Juan Rodriguez
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@include file="conexion.jsp" %>
+ <!-- Captura de valores del formulario -->
+    <%
+        int vCodigo = Integer.parseInt(request.getParameter("Codigo"));
+        String vNombres = request.getParameter("Nombres");
+        String vApellido = request.getParameter("Apellidos");
+        String vTelefono = request.getParameter("Telefono");
+        String vCorreo = request.getParameter("Correo");
+        
+        String consultar = "select IdEstudiante from estudiantes where IdEstudiante ="+vCodigo+"";
+        ResultSet data = sql.executeQuery(consultar);
+        int validacionCodigo = Integer.parseInt(data.getString(1));
+        if (vCodigo == validacionCodigo ){
+            out.println("el codigo de usuario ya se encuentra registrado");
+            
+        }
+        else {
+        
+        
+        //Creacion de consulta de acuerdo a los valores anteriores del formulario
+        String statement = "insert into estudiantes(IdEstudiante,nombre,apellido,telefono,correo) values ("+vCodigo+",'"+vNombres+"','"+vApellido+"','"+vTelefono+"','"+vCorreo+"')";
+        //Executar consulta
+        sql.executeUpdate(statement);
+        //Imprimir confirmacion
+        out.println("Usuario "+vNombres+" "+vApellido+" registrado");
+        }
+    %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -39,35 +67,35 @@
                         <!--Codigo -->
                         <td>
                             <%
-                                String vCodigo = request.getParameter("Codigo");
+                                //int vCodigo = Integer.parseInt(request.getParameter("Codigo"));
                                 out.println(vCodigo);
                             %>                
                         </td>
                         <!--Apellidos -->
                         <td>
                             <%
-                                String vApellido = request.getParameter("Apellidos");
+                                //String vApellido = request.getParameter("Apellidos");
                                 out.println(vApellido);
                             %>                
                         </td>
                         <!--Nombres -->
                         <td>
                             <%
-                                String vNombres = request.getParameter("Nombres");
+                                //String vNombres = request.getParameter("Nombres");
                                 out.println(vNombres);
                             %>                
                         </td>
                         <!--Telefono -->
                         <td>
                             <%
-                                int vTelefono = Integer.parseInt(request.getParameter("Telefono"));
+                                //int vTelefono = Integer.parseInt(request.getParameter("Telefono"));
                                 out.println(vTelefono);
                             %>                
                         </td>
                         <!--Correo -->
                         <td>
                             <%
-                                String vCorreo = request.getParameter("Correo");
+                                //String vCorreo = request.getParameter("Correo");
                                 out.println(vCorreo);
                             %>                
                         </td>

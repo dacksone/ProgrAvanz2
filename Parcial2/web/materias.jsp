@@ -27,8 +27,8 @@
 
                         <th>Codigo de materia</th>
                         <th>Nombre de Materia</th>
-                        <th>Departamento</th>
-                        <th>Nombre Profesor</th>
+                        <th>Intensidad horaria</th>
+                        <th>Numero de creditos</th>
                         
                     </tr>
 
@@ -49,18 +49,18 @@
                                 out.println(vNombre);
                             %>                
                         </td>
-                        <!--Departamento -->
+                        <!--Intensidad horaria -->
                         <td>
                             <%
-                                String vDepartamento = request.getParameter("Departamento");
-                                out.println(vDepartamento);
+                                Double vIntensidad = Double.parseDouble(request.getParameter("Intensidad"));
+                                out.println(vIntensidad);
                             %>                
                         </td>
-                        <!--Nombre Profesor -->
+                        <!--Numero de creditos -->
                         <td>
                             <%
-                                String vNProfesor = request.getParameter("NProfesor");
-                                out.println(vNProfesor);
+                                Double vCreditos = Double.parseDouble(request.getParameter("Creditos"));
+                                out.println(vCreditos);
                             %>                
                         </td>
                         

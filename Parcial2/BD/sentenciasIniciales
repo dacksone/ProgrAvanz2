@@ -1,0 +1,39 @@
+CREATE TABLE estudiantes (
+	IdEstudiante BIGINT PRIMARY KEY,
+    nombre varchar(30),
+    apellido varchar(30),    
+    telefono varchar(15),
+    correo varchar(30)
+)
+
+
+CREATE TABLE profesores (
+	IdProfesor BIGINT PRIMARY KEY,
+    nombre varchar(30),
+    apellido varchar(30),    
+    telefono varchar(15),
+    correo varchar(30),
+	especialidad varchar(30)
+)
+
+CREATE TABLE materias (
+	codigo varchar(30) PRIMARY KEY ,
+    nombre varchar(30),
+    intensidad int,    
+    creditos int
+)
+
+CREATE TABLE notas (
+	IdNota bigint PRIMARY KEY AUTO_INCREMENT,
+    IdEstudiante bigint,
+    IdProfesor BIGINT,
+    codigo  varchar(30) ,
+    nota1 float,
+	nota2 float,
+	nota3 float,
+	Promedio float,
+	notaFinal float,    
+    FOREIGN KEY (IdEstudiante)REFERENCES estudiantes(IdEstudiante),
+    FOREIGN KEY (IdProfesor) REFERENCES profesores(IdProfesor),
+    FOREIGN KEY (codigo) REFERENCES materias(codigo)
+)

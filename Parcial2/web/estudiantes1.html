@@ -42,14 +42,14 @@ cont = 0;
         for(h=0;h<Codigo.length;h++)
  {
       ch = Codigo.charAt(h);
-        for (k=0;k<listabecedario.length; k++)
+        for (k=0;k<listanumeros.length; k++)
 
     {
-          if(ch ==listabecedario.charAt(k))
+          if(ch ==listanumeros.charAt(k))
 
     {
          cont = cont + 1;
-        k = listabecedario.length;
+        k = listanumeros.length;
         break;
     }     
     }  
@@ -208,6 +208,9 @@ cont = 0;
 </script>
 </head>
 <body>
+   
+    
+    
  <FORM name="form1"  ACTION ="estudiantes.jsp" METHOD="POST" onSubmit="return Validar(this)">
  <H2>CAPTURA DE DATOS - ESTUDIANTES</H2>
  <font face="Arial"> 
@@ -216,7 +219,7 @@ cont = 0;
    <table border="1">
    <tr>	
 	<td>Codigo</td>       
-	<td><input name="Codigo" type="text"   id="Codigo"    size="50" title="Codigo"></td>
+	<td><input name="Codigo" type="number"   id="Codigo"    size="50" title="Codigo"></td>
 	</TR> 
 	<tr>       	
 	<td>Apellidos</td>
@@ -228,7 +231,7 @@ cont = 0;
 	</TR>  	
 <tr>
 	<td>Telefono</td>
-	<td><input name="Telefono" type="numeric"  id="Telefono"> </td>
+	<td><input name="Telefono" type="text"  id="Telefono"> </td>
 </tr>
 <tr>
 	<td>Correo</td>
