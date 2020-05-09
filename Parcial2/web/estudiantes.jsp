@@ -13,25 +13,10 @@
         String vApellido = request.getParameter("Apellidos");
         String vTelefono = request.getParameter("Telefono");
         String vCorreo = request.getParameter("Correo");
-        
-        String consultar = "select IdEstudiante from estudiantes where IdEstudiante ="+vCodigo+"";
-        ResultSet data = sql.executeQuery(consultar);
-        int validacionCodigo = Integer.parseInt(data.getString(1));
-        if (vCodigo == validacionCodigo ){
-            out.println("el codigo de usuario ya se encuentra registrado");
-            
-        }
-        else {
-        
-        
-        //Creacion de consulta de acuerdo a los valores anteriores del formulario
-        String statement = "insert into estudiantes(IdEstudiante,nombre,apellido,telefono,correo) values ("+vCodigo+",'"+vNombres+"','"+vApellido+"','"+vTelefono+"','"+vCorreo+"')";
-        //Executar consulta
-        sql.executeUpdate(statement);
-        //Imprimir confirmacion
-        out.println("Usuario "+vNombres+" "+vApellido+" registrado");
-        }
     %>
+        
+    
+    
 
 <!DOCTYPE html>
 <html>
@@ -67,28 +52,28 @@
                         <!--Codigo -->
                         <td>
                             <%
-                                //int vCodigo = Integer.parseInt(request.getParameter("Codigo"));
+                                vCodigo = Integer.parseInt(request.getParameter("Codigo"));
                                 out.println(vCodigo);
                             %>                
                         </td>
                         <!--Apellidos -->
                         <td>
                             <%
-                                //String vApellido = request.getParameter("Apellidos");
+                                 vApellido = request.getParameter("Apellidos");
                                 out.println(vApellido);
                             %>                
                         </td>
                         <!--Nombres -->
                         <td>
                             <%
-                                //String vNombres = request.getParameter("Nombres");
+                                 vNombres = request.getParameter("Nombres");
                                 out.println(vNombres);
                             %>                
                         </td>
                         <!--Telefono -->
                         <td>
                             <%
-                                //int vTelefono = Integer.parseInt(request.getParameter("Telefono"));
+                                vTelefono = request.getParameter("Telefono");
                                 out.println(vTelefono);
                             %>                
                         </td>
@@ -103,9 +88,37 @@
                     </tr>
                 </table>
                 <br>
+                <a>
+                    <%
+        String consultar = "select IdEstudiante from estudiantes where IdEstudiante ="+vCodigo;
+        int ID = 0;
+        ResultSet data = sql.executeQuery(consultar);
+        while(data.next()){
+            ID = data.getInt(1);
+        }
+       if (vCodigo == ID ){
+            out.println("el codigo "+ID+" ya se encuentra registrado");
+            
+        }
+        else {
+        
+        
+        //Creacion de consulta de acuerdo a los valores anteriores del formulario
+        String statement = "insert into estudiantes(IdEstudiante,nombre,apellido,telefono,correo) values ("+vCodigo+",'"+vNombres+"','"+vApellido+"','"+vTelefono+"','"+vCorreo+"')";
+        //Executar consulta
+        sql.executeUpdate(statement);
+        //Imprimir confirmacion
+        out.println("Usuario "+vNombres+" "+vApellido+" registrado");
+        
+       }
+    %>
+                </a>
+                <br>
+                    
                 <a href="estudiantes1.html">Regresar al formulario </a>
                 <br>
                 <a href="index.html">Regresar al Menu Principal </a>
                 <div>
                     </body>
                     </html>
+                    
