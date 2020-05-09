@@ -1,29 +1,7 @@
-<%-- 
-    Document   : estudiantes
-    Created on : 2/05/2020, 06:30:43 AM
-    Author     : Juan Rodriguez
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
-<%@include file="conexion.jsp" %>
- <!-- Captura de valores del formulario -->
-    <%
-        int vCodigo = Integer.parseInt(request.getParameter("Codigo"));
-        String vNombres = request.getParameter("Nombres");
-        String vApellido = request.getParameter("Apellidos");
-        String vTelefono = request.getParameter("Telefono");
-        String vCorreo = request.getParameter("Correo");
-    %>
-        
-    
-    
-
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <link rel="stylesheet" href="estilosJSP.css">
+        <title> Your Title Here </title>
         <link rel="stylesheet" href="estilos.css">
     </head>
     <body>
@@ -72,11 +50,13 @@
                 </nav><!-- Aqui estamos cerrando la nueva etiqueta nav -->
             </header>
         </div>
+        
+        
         <div id="PrimerContenedor" >
             <header>
                 <h1 >Resultados de formulario estudiantes </h1>
             </header>
-            
+
             <div>
 
                 <H2>Tabla de resultados</H2>
@@ -165,6 +145,6 @@
                 <br>
                 <a href="index.html">Regresar al Menu Principal </a>
                 <div>
-                    </body>
-                    </html>
-                    
+
+    </body>
+</html>
