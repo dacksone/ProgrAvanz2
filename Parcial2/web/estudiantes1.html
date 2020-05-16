@@ -208,53 +208,42 @@ cont = 0;
 }
     
 </script>
+<script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+</script>
 </head>
 <body>
-    <div>
-            <header>
-                <nav> 
-                    <!-- Aqui estamos iniciando la nueva etiqueta nav -->
-                    <ul class="menu">
-                        <!-- Inicio-->
-                        <li><a href="index.html">Inicio </a>
+    <div w3-include-html="headertest.html"></div> 
 
-                        </li>
-                        <li><a href="#">Estudiantes </a>
-                            <ul>	
-                                <li><a href="estudiantes1.html"> Captura </a></li>
-                                <li><a href="ConsEstudiantes.jsp"> Consultar </a></li>
-                                <li><a href="#"> Modificar </a></li>
-                                <li><a href="#"> Eliminar </a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Materias </a>
-                            <ul>	
-                                <li><a href="materias.html"> Captura </a></li>
-                                <li><a href="#"> Consultar </a></li>
-                                <li><a href="#"> Modificar </a></li>
-                                <li><a href="#"> Eliminar </a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Notas </a>
-                            <ul>	
-                                <li><a href="notas.html"> Captura </a></li>
-                                <li><a href="#"> Consultar </a></li>
-                                <li><a href="#"> Modificar </a></li>
-                                <li><a href="#"> Eliminar </a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Profesores </a>
-                            <ul>	
-                                <li><a href="profesores.html"> Captura </a></li>
-                                <li><a href="#"> Consultar </a></li>
-                                <li><a href="#"> Modificar </a></li>
-                                <li><a href="#"> Eliminar </a></li>
-                            </ul>
-                        </li>
-                    </ul>	
-                </nav><!-- Aqui estamos cerrando la nueva etiqueta nav -->
-            </header>
-        </div>
+<script>
+includeHTML();
+</script>
    
     
     
