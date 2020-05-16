@@ -1,0 +1,14 @@
+//Query para crear la BD.
+Create Database parcial1;
+
+
+//Query para crear la tabla
+CREATE TABLE estudiantes 
+(
+    CodigoEsudiante varchar(20) PRIMARY KEY,
+    NombresEstudiante varchar(30),
+    FechaNacimiento date,
+    GeneroEstudiante varchar(10),
+    EstadoCivilEstudiante varchar(20),
+    PasatiemposEstudiante varchar(20)
+)
