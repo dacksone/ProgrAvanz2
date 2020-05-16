@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="estilos.css">
+        <link rel="stylesheet" href="estilosJSP.css">
+        <script type="text/javascript" src="javascript.js"></script>
+    <jsp:include page="consultas.jsp" />
+</head>
+<body>
+
+
+    <div w3-include-html="header.html"></div> 
+
+    <script>
+        includeHTML();
+    </script>
+
+    <FORM name="form1"  ACTION ="profesores.jsp" METHOD="POST" onSubmit="return Validar(this)">
+        <H2>CAPTURA DE DATOS - PROFESOR</H2>
+        <font face="Arial"> 
+        <br>
+        <br>	   
+        <table border="1">
+            <tr>	
+                <td>Codigo</td>       
+                <td><input name="Codigo" type="text"   id="Codigo"    size="50" title="Codigo"></td>
+            </TR> 
+            <tr>       	
+                <td>Nombres</td>
+                <td><input name="Nombres" type="text"  id="Nombres"  size="20" title="Nombres"></td>
+            </TR> 
+            <tr>       	
+                <td>Apellidos</td>
+                <td><input name="Apellidos" type="text"  id="Apellidos"  size="20" title="Apellidos"></td>
+            </TR>  	
+
+            <tr>
+                <td>Telefono</td>
+                <td><input name="Telefono" type="numeric"  id="Telefono"> </td>
+            </tr>
+            <tr>
+                <td>Materia</td>
+                    <select >
+                        <jsp:include page="consultas.jsp" />
+                                                
+                    </select>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Enviar"></td>
+                <td></td>
+            </tr>
+        </table>
+    </FORM>
+    <br>
+    <div w3-include-html="footer.html"></div> 
+</body>
+</html>

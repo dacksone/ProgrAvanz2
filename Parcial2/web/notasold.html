@@ -9,8 +9,18 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="estilos.css">
+        <link rel="stylesheet" href="estilosJSP.css">
+        <script type="text/javascript" src="javascript.js"></script>
     </head>
     <body>
+        
+        <div w3-include-html="header.html"></div> 
+
+        <script>
+            includeHTML();
+        </script>
+        
         <FORM name="form1"  ACTION ="notas.jsp" METHOD="POST" >
             <H2>CAPTURA DE DATOS - NOTAS</H2>
             <font face="Arial"> 
@@ -46,6 +56,6 @@ and open the template in the editor.
             </table>
         </FORM>
         <br>
-        <a href="index.html">Regresar al Menu </a>
+        <div w3-include-html="footer.html"></div> 
     </body>
 </html>

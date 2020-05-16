@@ -1,8 +1,10 @@
 <%-- 
-    Document   : ConsEstudiantes.jsp
-    Created on : 2/05/2020, 06:30:43 AM
+    Document   : ConsProfesores
+    Created on : 16/05/2020, 10:46:09 AM
     Author     : Juan Rodriguez
 --%>
+
+
 <html>
     <head>
 <script type="text/javascript" src="javascript.js"></script>
@@ -16,18 +18,19 @@
 <%@include file="conexion.jsp" %>
 <%@include file="header.html" %>
 
-<%    ResultSet rs = sql.executeQuery("select IdEstudiante , nombre, apellido, telefono,correo from estudiantes");
+<%    ResultSet rs = sql.executeQuery("select IdProfesor , nombre, apellido, telefono,correo,especialidad from profesores");
 
     out.println("<H2>Tabla de resultados</H2>");
     out.println("<font face=Arial>");
     out.println("<br>");
     out.println("<table border=2>");
     out.println("<tr>");
-    out.println("<th>Codigo</th>");
-        out.println("<th>Apellidos</th>");
+    out.println("<th>Codigo Profesor</th>");
         out.println("<th>Nombres</th>");
+        out.println("<th>Apellidos</th>");
         out.println("<th>Telefono</th>");
         out.println("<th>Correo</th>");
+        out.println("<th>Especialidad</th>");
         out.println("</tr>");
 
     while (rs.next()) {
@@ -36,10 +39,16 @@
 
         out.println("<tr>");
 
-        out.println("<!--Codigo -->");
+        out.println("<!--Codigo Profesor-->");
         out.println("<td>");
 
-        out.println(rs.getInt("IdEstudiante"));
+        out.println(rs.getInt("IdProfesor"));
+        
+        out.println("</td>");
+        out.println("<!--Nombres -->");
+        out.println("<td>");
+
+        out.println(rs.getString("nombre"));
 
         out.println("</td>");
         out.println("<!--Apellidos -->");
@@ -47,11 +56,7 @@
 
         out.println(rs.getString("apellido"));
 
-        out.println("</td>");
-        out.println("<!--Nombres -->");
-        out.println("<td>");
-
-        out.println(rs.getString("nombre"));
+        
 
         out.println("</td>");
         out.println("<!--Telefono -->");
@@ -64,6 +69,12 @@
         out.println("<td>");
 
         out.println(rs.getString("correo"));
+        
+        out.println("</td>");
+        out.println("<!--especialida -->");
+        out.println("<td>");
+
+        out.println(rs.getString("especialidad"));
 
         out.println("</td>");
 
@@ -80,10 +91,10 @@
 %>
 
 </body>
-<a href="estudiantes1.html">Regresar al formulario </a>
+<a href="profesores.jsp">Regresar al formulario </a>
 <br>
 
-<a href="indexold.html">Regresar al Menu Principal </a>
+<div w3-include-html="footer.html"></div> 
 
 </html>
     

@@ -1,7 +1,3 @@
-<!DOCTYPE html>
-<html>
-    <head>
-<script>
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
   /*loop through a collection of all HTML elements:*/
@@ -29,18 +25,6 @@ function includeHTML() {
     }
   }
 };
-</script>
-<link rel="stylesheet" href="estilos.css">
-<link rel="stylesheet" href="estilosJSP.css">
-</head>
-<body>
-
-<div w3-include-html="headertest.html"></div> 
 
 
-<script>
-includeHTML();
-</script>
 
-</body>
-</html>

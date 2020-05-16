@@ -21,7 +21,7 @@
         Class.forName("com.mysql.jdbc.Driver");
         conex = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/EjercicioJSP", "root", "");
         sql = conex.createStatement();
-        out.print("Conexion Establecida");
+        //out.print("Conexion Establecida");
     } catch (Exception e) {
         out.print("error en la conexion " + e);
     }

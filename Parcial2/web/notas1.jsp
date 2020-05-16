@@ -1,17 +1,17 @@
 <%-- 
-    Document   : materias
-    Created on : 2/05/2020, 07:29:00 AM
+    Document   : notas
+    Created on : 2/05/2020, 07:36:55 AM
     Author     : Juan Rodriguez
 --%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="conexion.jsp" %>
-<%@include file="consultas.jsp" %>
-<!-- Captura de valores del formulario -->
-<%        int vCodigo = Integer.parseInt(request.getParameter("Codigo"));
-    String vNombreMateria = request.getParameter("NombreMateria");
-    String vIntensidad = request.getParameter("Intensidad");
-    String vCreditos = request.getParameter("Creditos");
 
+<%        int vCodigo = Integer.parseInt(request.getParameter("Codigo"));
+    String vMateria = request.getParameter("Materia");
+    double vNota1 = Double.parseDouble(request.getParameter("Nota1"));
+    double vNota2 = Double.parseDouble(request.getParameter("Nota2"));
+    double vNota3 = Double.parseDouble(request.getParameter("Nota3"));
 %>
 
 
@@ -20,27 +20,19 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-
         <link rel="stylesheet" href="estilosJSP.css">
         <link rel="stylesheet" href="estilos.css">
         <script type="text/javascript" src="javascript.js"></script>
     </head>
     <body>
-        <div w3-include-html="header.html"></div> 
-
-        <script>
-            includeHTML();
-        </script>
-
-
         <div id="PrimerContenedor" >
             <header>
-                <h1 >Formulario materias </h1>
+                <h1 >Resultados de formulario Notas </h1>
             </header>
 
             <div>
 
-                <H2>Tabla de datos ingresados ->  materias</H2>
+                <H2>Tabla de resultados Notas</H2>
                 <font face="Arial">
                 <br>
                 <table border="2">
@@ -48,9 +40,10 @@
 
                         <th>Codigo de materia</th>
                         <th>Nombre de Materia</th>
-                        <th>Intensidad horaria</th>
-                        <th>Numero de creditos</th>
-
+                        <th>Nota1</th>
+                        <th>Nota2</th>
+                        <th>Nota3</th>
+                        
                     </tr>
 
                     <tr>
@@ -58,63 +51,70 @@
 
                         <!-- Codigo de materia -->
                         <td>
-                            <%                                
+                            <%
+                                vCodigo = Integer.parseInt(request.getParameter("Codigo"));
                                 out.println(vCodigo);
                             %>                
                         </td>
                         <!--Nombre de Materia -->
                         <td>
                             <%
-                                
-                                out.println(vNombreMateria);
+                                vMateria = request.getParameter("Materia");
+                                out.println(vMateria);
                             %>                
                         </td>
-                        <!--Intensidad horaria -->
+                        <!--Nota1 -->
                         <td>
                             <%
-                                
-                                out.println(vIntensidad);
+                                vNota1 = Double.parseDouble(request.getParameter("Nota1"));
+                                out.println(vNota1);
                             %>                
                         </td>
-                        <!--Numero de creditos -->
+                        <!--Nota2 -->
                         <td>
                             <%
-                                
-                                out.println(vCreditos);
+                                vNota2 = Double.parseDouble(request.getParameter("Nota2"));
+                                out.println(vNota2);
                             %>                
                         </td>
-
+                        <!--Nota3 -->
+                        <td>
+                            <%
+                                vNota3 = Double.parseDouble(request.getParameter("Nota3"));
+                                out.println(vNota3);
+                            %>                
+                        </td>
+                        
 
                     </tr>
                 </table>
                 <br>
                 <a>
                     <%
-                        String consultar = "select codigo from materias where codigo =" + vCodigo;
+                        String consultar = "select IdEstudiante from estudiantes where IdEstudiante =" + vCodigo;
                         int ID = 0;
                         ResultSet data = sql.executeQuery(consultar);
                         while (data.next()) {
                             ID = data.getInt(1);
                         }
                         if (vCodigo == ID) {
-                            out.println("El codigo " + ID + " ya se encuentra registrado");
+                            out.println("el codigo " + ID + " ya se encuentra registrado");
 
                         } else {
 
                             //Creacion de consulta de acuerdo a los valores anteriores del formulario
-                            String statement = "insert into materias(codigo,nombre,intensidad,creditos) values ('" + vCodigo + "','" + vNombreMateria + "'," + vIntensidad + "," + vCreditos + ")";
+                            String statement = "insert into estudiantes(IdEstudiante,nombre,apellido,telefono,correo) values (" + vCodigo + ",'" + vNombres + "','" + vApellido + "','" + vTelefono + "','" + vCorreo + "')";
                             //Executar consulta
                             sql.executeUpdate(statement);
                             //Imprimir confirmacion
-                            out.println("La materia  " + vNombreMateria + " ha sido registrada");
+                            out.println("Usuario " + vNombres + " " + vApellido + " registrado");
 
                         }
                     %>
-                    <br>    
                 </a>
-                <a href="materias.html">Regresar al formulario </a>
+                <a href="notasold.html">Regresar al formulario </a>
                 <br>
-                <div w3-include-html="footer.html"></div> 
+                <a href="indexold.html">Regresar al Menu Principal </a>
                 <div>
                     </body>
                     </html>

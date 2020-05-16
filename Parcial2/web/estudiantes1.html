@@ -1,285 +1,260 @@
 <html>
-<head>
-<title>CAPTURA </title> 
-<link rel="stylesheet" href="estilos.css">
-<link rel="stylesheet" href="estilosJSP.css">
-<script language="JavaScript">
+    <head>
+        <title>CAPTURA </title> 
+        <link rel="stylesheet" href="estilos.css">
+        <link rel="stylesheet" href="estilosJSP.css">
+        <script type="text/javascript" src="javascript.js"></script>
+        
+        <script language="JavaScript">
 
-function Validar( formulario ) {
-  var Codigo = formulario.Codigo.value;
-  var largoCodigo = Codigo.length;
-  
-  var Apellidos = formulario.Apellidos.value;
-  var largoApeliidos = Apellidos.length;
-  
-  var Nombres = formulario.Nombres.value; 
-  var largoNombres = Nombres.length;
-  
-  var Telefono = formulario.Telefono.value; 
-  var largoTelefono = Telefono.length;
-  
-  var Correo = formulario.Correo.value; 
-  var largoCorreo = Correo.length;
-  
-  var listabecedario = " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@.";
-  var listanumeros = "0123456789";
-  var listabecedariocorreo = " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@.*-/\!#$%&&/()=?¡*¨][_:";
-  
-  var cont = 0;
-  
+            function Validar(formulario) {
+                var Codigo = formulario.Codigo.value;
+                var largoCodigo = Codigo.length;
 
+                var Apellidos = formulario.Apellidos.value;
+                var largoApeliidos = Apellidos.length;
 
-/*  Validar Codigo */
+                var Nombres = formulario.Nombres.value;
+                var largoNombres = Nombres.length;
 
-if(largoCodigo<1)
-{
-    
-    alert("Favor ingrese datos al campo codigo ");
-    formulario.Codigo.focus();
-    return (false);
+                var Telefono = formulario.Telefono.value;
+                var largoTelefono = Telefono.length;
 
-}
-/*  Validar Valores */
-cont = 0;
-        for(h=0;h<Codigo.length;h++)
- {
-      ch = Codigo.charAt(h);
-        for (k=0;k<listanumeros.length; k++)
+                var Correo = formulario.Correo.value;
+                var largoCorreo = Correo.length;
 
-    {
-          if(ch ==listanumeros.charAt(k))
+                var listabecedario = " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@.";
+                var listanumeros = "0123456789";
+                var listabecedariocorreo = " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@.*-/\!#$%&&/()=?¡*¨][_:";
 
-    {
-         cont = cont + 1;
-        k = listanumeros.length;
-        break;
-    }     
-    }  
- }
- if(cont < Codigo.length)
-  
-  {
-    alert("El campo Codigo tiene caracteres no reconocidos");
-    formulario.Codigo.focus();
-    return (false);   
-}
-
-/*  Validar Apellidos */
-
-if(largoApeliidos<1)
-{
-    
-    alert("Favor ingrese datos al campo Apellidos ");
-    formulario.Apellidos.focus();
-    return (false);
-
-}
-/*  Validar Apellidos */
-cont = 0;
-        for(h=0;h<Apellidos.length;h++)
- {
-      ch = Apellidos.charAt(h);
-        for (k=0;k<listabecedario.length; k++)
-
-    {
-          if(ch ==listabecedario.charAt(k))
-
-    {
-         cont = cont + 1;
-        k = listabecedario.length;
-        break;
-    }     
-    }  
- }
- if(cont < Apellidos.length)
-  
-  {
-    alert("El campo Apellidos tiene caracteres no reconocidos");
-    formulario.Apellidos.focus();
-    return (false);   
-}
+                var cont = 0;
 
 
 
-/*  Validar Nombres */
+                /*  Validar Codigo */
 
-if(largoNombres<1)
-{
-    
-    alert("Favor ingrese datos al campo Nombres ");
-    formulario.Nombres.focus();
-    return (false);
+                if (largoCodigo < 1)
+                {
 
-}
-/*  Validar Nombres */
-cont = 0;
-        for(h=0;h<Nombres.length;h++)
- {
-      ch = Nombres.charAt(h);
-        for (k=0;k<listabecedario.length; k++)
+                    alert("Favor ingrese datos al campo codigo ");
+                    formulario.Codigo.focus();
+                    return (false);
 
-    {
-          if(ch ==listabecedario.charAt(k))
+                }
+                /*  Validar Valores */
+                cont = 0;
+                for (h = 0; h < Codigo.length; h++)
+                {
+                    ch = Codigo.charAt(h);
+                    for (k = 0; k < listanumeros.length; k++)
 
-    {
-         cont = cont + 1;
-        k = listabecedario.length;
-        break;
-    }     
-    }  
- }
- if(cont < Nombres.length)
-  
-  {
-    alert("El campo Nombres tiene caracteres no reconocidos");
-    formulario.Nombres.focus();
-    return (false);   
-}
+                    {
+                        if (ch == listanumeros.charAt(k))
 
+                        {
+                            cont = cont + 1;
+                            k = listanumeros.length;
+                            break;
+                        }
+                    }
+                }
+                if (cont < Codigo.length)
 
- /*  Validar Telefonos  */
+                {
+                    alert("El campo Codigo tiene caracteres no reconocidos");
+                    formulario.Codigo.focus();
+                    return (false);
+                }
 
-  if(largoTelefono<1)
-  {
-    alert("Favor ingrese datos en el campo Telefono");
-    formulario.Telefono.focus();
-    return (false);
-  }
-    cont = 0;
-    for(i=0;i<Telefono.length;i++)
- {
-    ch = Telefono.charAt(i);
-    for (j=0;j<listanumeros.length; j++)
-   {
-      if(ch ==listanumeros.charAt(j))
-       {
-          cont = cont + 1;
-          j = listanumeros.length;
-          break;
-        }       
-    }  
-  }
-  
-  if(cont < Telefono.length)
-  {
-    alert("El campo Telefono tiene caracteres no reconocidos");
-    formulario.Telefono.focus();
-    return (false);   
-  } 
-  
-  /*  Validar Correo */
+                /*  Validar Apellidos */
 
-if(largoCorreo<1)
-{
-    
-    alert("Favor ingrese datos al campo Correo ");
-    formulario.Correo.focus();
-    return (false);
+                if (largoApeliidos < 1)
+                {
 
-}
-/*  Validar Correo */
-cont = 0;
-        for(h=0;h<Correo.length;h++)
- {
-      ch = Correo.charAt(h);
-        for (k=0;k<listabecedariocorreo.length; k++)
+                    alert("Favor ingrese datos al campo Apellidos ");
+                    formulario.Apellidos.focus();
+                    return (false);
 
-    {
-          if(ch ==listabecedariocorreo.charAt(k))
+                }
+                /*  Validar Apellidos */
+                cont = 0;
+                for (h = 0; h < Apellidos.length; h++)
+                {
+                    ch = Apellidos.charAt(h);
+                    for (k = 0; k < listabecedario.length; k++)
 
-    {
-         cont = cont + 1;
-        k = listabecedariocorreo.length;
-        break;
-    }     
-    }  
- }
- if(cont < Correo.length)
-  
-  {
-    alert("El campo Correo tiene caracteres no reconocidos, solo se permiten estos caracteres: @.*-/\!#$%&&/( )=?¡*][_:");
-    formulario.Correo.focus();
-    return (false);   
-}
+                    {
+                        if (ch == listabecedario.charAt(k))
 
-  
+                        {
+                            cont = cont + 1;
+                            k = listabecedario.length;
+                            break;
+                        }
+                    }
+                }
+                if (cont < Apellidos.length)
+
+                {
+                    alert("El campo Apellidos tiene caracteres no reconocidos");
+                    formulario.Apellidos.focus();
+                    return (false);
+                }
 
 
-}
-    
-</script>
-<script>
-function includeHTML() {
-  var z, i, elmnt, file, xhttp;
-  /*loop through a collection of all HTML elements:*/
-  z = document.getElementsByTagName("*");
-  for (i = 0; i < z.length; i++) {
-    elmnt = z[i];
-    /*search for elements with a certain atrribute:*/
-    file = elmnt.getAttribute("w3-include-html");
-    if (file) {
-      /*make an HTTP request using the attribute value as the file name:*/
-      xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4) {
-          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-          /*remove the attribute, and call this function once more:*/
-          elmnt.removeAttribute("w3-include-html");
-          includeHTML();
-        }
-      }      
-      xhttp.open("GET", file, true);
-      xhttp.send();
-      /*exit the function:*/
-      return;
-    }
-  }
-};
-</script>
-</head>
-<body>
-    <div w3-include-html="headertest.html"></div> 
 
-<script>
-includeHTML();
-</script>
-   
-    
-    
- <FORM name="form1"  ACTION ="estudiantes.jsp" METHOD="POST" onSubmit="return Validar(this)">
- <H2>CAPTURA DE DATOS - ESTUDIANTES</H2>
- <font face="Arial"> 
-   <br>
-   <br>	   
-   <table border="1">
-   <tr>	
-	<td>Codigo</td>       
-	<td><input name="Codigo" type="number"   id="Codigo"    size="50" title="Codigo"></td>
-	</TR> 
-	<tr>       	
-	<td>Apellidos</td>
-	<td><input name="Apellidos" type="text"  id="Apellidos"  size="20" title="Apellidos"></td>
-	</TR>  	
-	<tr>       	
-	<td>Nombres</td>
-	<td><input name="Nombres" type="text"  id="Nombres"  size="20" title="Nombres"></td>
-	</TR>  	
-<tr>
-	<td>Telefono</td>
-	<td><input name="Telefono" type="text"  id="Telefono"> </td>
-</tr>
-<tr>
-	<td>Correo</td>
-	<td><input name="Correo"  type="text"  id="Correo"> </td>
-</tr>
-<tr>
-	<td><input type="submit" value="Enviar"></td>
-	<td></td>
-</tr>
-    </table>
-   </FORM>
-    <br>
-    <a href="index.html">Regresar al Menu </a>
-</body>
+                /*  Validar Nombres */
+
+                if (largoNombres < 1)
+                {
+
+                    alert("Favor ingrese datos al campo Nombres ");
+                    formulario.Nombres.focus();
+                    return (false);
+
+                }
+                /*  Validar Nombres */
+                cont = 0;
+                for (h = 0; h < Nombres.length; h++)
+                {
+                    ch = Nombres.charAt(h);
+                    for (k = 0; k < listabecedario.length; k++)
+
+                    {
+                        if (ch == listabecedario.charAt(k))
+
+                        {
+                            cont = cont + 1;
+                            k = listabecedario.length;
+                            break;
+                        }
+                    }
+                }
+                if (cont < Nombres.length)
+
+                {
+                    alert("El campo Nombres tiene caracteres no reconocidos");
+                    formulario.Nombres.focus();
+                    return (false);
+                }
+
+
+                /*  Validar Telefonos  */
+
+                if (largoTelefono < 1)
+                {
+                    alert("Favor ingrese datos en el campo Telefono");
+                    formulario.Telefono.focus();
+                    return (false);
+                }
+                cont = 0;
+                for (i = 0; i < Telefono.length; i++)
+                {
+                    ch = Telefono.charAt(i);
+                    for (j = 0; j < listanumeros.length; j++)
+                    {
+                        if (ch == listanumeros.charAt(j))
+                        {
+                            cont = cont + 1;
+                            j = listanumeros.length;
+                            break;
+                        }
+                    }
+                }
+
+                if (cont < Telefono.length)
+                {
+                    alert("El campo Telefono tiene caracteres no reconocidos");
+                    formulario.Telefono.focus();
+                    return (false);
+                }
+
+                /*  Validar Correo */
+
+                if (largoCorreo < 1)
+                {
+
+                    alert("Favor ingrese datos al campo Correo ");
+                    formulario.Correo.focus();
+                    return (false);
+
+                }
+                /*  Validar Correo */
+                cont = 0;
+                for (h = 0; h < Correo.length; h++)
+                {
+                    ch = Correo.charAt(h);
+                    for (k = 0; k < listabecedariocorreo.length; k++)
+
+                    {
+                        if (ch == listabecedariocorreo.charAt(k))
+
+                        {
+                            cont = cont + 1;
+                            k = listabecedariocorreo.length;
+                            break;
+                        }
+                    }
+                }
+                if (cont < Correo.length)
+
+                {
+                    alert("El campo Correo tiene caracteres no reconocidos, solo se permiten estos caracteres: @.*-/\!#$%&&/( )=?¡*][_:");
+                    formulario.Correo.focus();
+                    return (false);
+                }
+
+
+
+
+            }
+
+        </script>
+        
+    </head>
+    <body>
+        <div w3-include-html="header.html"></div> 
+
+        <script>
+            includeHTML();
+        </script>
+
+
+
+        <FORM name="form1"  ACTION ="estudiantes.jsp" METHOD="POST" onSubmit="return Validar(this)">
+            <H2>CAPTURA DE DATOS - ESTUDIANTES</H2>
+            <font face="Arial"> 
+            <br>
+            <br>	   
+            <table border="1">
+                <tr>	
+                    <td>Codigo</td>       
+                    <td><input name="Codigo" type="number"   id="Codigo"    size="50" title="Codigo"></td>
+                </TR> 
+                <tr>       	
+                    <td>Apellidos</td>
+                    <td><input name="Apellidos" type="text"  id="Apellidos"  size="20" title="Apellidos"></td>
+                </TR>  	
+                <tr>       	
+                    <td>Nombres</td>
+                    <td><input name="Nombres" type="text"  id="Nombres"  size="20" title="Nombres"></td>
+                </TR>  	
+                <tr>
+                    <td>Telefono</td>
+                    <td><input name="Telefono" type="text"  id="Telefono"> </td>
+                </tr>
+                <tr>
+                    <td>Correo</td>
+                    <td><input name="Correo"  type="text"  id="Correo"> </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Enviar"></td>
+                    <td></td>
+                </tr>
+            </table>
+        </FORM>
+        <br>
+        <div w3-include-html="footer.html"></div> 
+
+    </body>
 </html>
