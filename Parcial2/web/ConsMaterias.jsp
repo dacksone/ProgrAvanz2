@@ -28,7 +28,8 @@
             out.println("<th>Codigo de materia</th>");
             out.println("<th>Nombre de materia</th>");
             out.println("<th>Intesidad</th>");
-            out.println("<th>Creditos</th>");            
+            out.println("<th>Creditos</th>");   
+            out.println("<th>Opciones</th>"); 
             out.println("</tr>");
 
             while (rs.next()) {
@@ -57,6 +58,12 @@
                 out.println("<td>");
 
                 out.println(rs.getString("creditos"));
+
+                out.println("</td>");
+                out.println("<td>");
+
+                out.println("<a href=ModMaterias1.jsp?codigo=" + rs.getInt("codigo") + "> Modificar </a>"+
+                            "<a href=ElimMaterias.jsp?codigo=" + rs.getInt("codigo") + ">    Eliminar </a>");
 
                 out.println("</td>");
                 

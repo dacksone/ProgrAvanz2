@@ -1,5 +1,5 @@
 <%-- 
-    Document   : ConsEstudiantes.jsp
+    Document   : ConsEstudiantes
     Created on : 2/05/2020, 06:30:43 AM
     Author     : Juan Rodriguez
 --%>
@@ -28,6 +28,7 @@
         out.println("<th>Nombres</th>");
         out.println("<th>Telefono</th>");
         out.println("<th>Correo</th>");
+        out.println("<th>Opciones</th>");
         out.println("</tr>");
 
     while (rs.next()) {
@@ -64,6 +65,13 @@
         out.println("<td>");
 
         out.println(rs.getString("correo"));
+
+        out.println("</td>");
+        out.println("<!--Opciones -->");
+        out.println("<td>");
+
+        out.println("<a href=ModEstudiante1.jsp?IdEstudiante=" + rs.getInt("IdEstudiante") + "> Modificar </a>"+
+                    "<a href=ElimEstudiantes.jsp?IdEstudiante=" + rs.getInt("IdEstudiante") + ">    Eliminar </a>");
 
         out.println("</td>");
 
