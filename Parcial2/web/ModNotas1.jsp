@@ -7,14 +7,10 @@
 
 <%@include file="conexion.jsp" %>
 
-<%     
-    /*
-int vcodigo = Integer.parseInt(request.getParameter("IdNota"));
-
-     String cadena = "select * from notas where IdNota=" + vcodigo;
-     ResultSet rs1 = sql.executeQuery(cadena);
-     while (rs1.next()) {
-     */
+<%             //t vcodigo = Integer.parseInt(request.getParameter("IdNota"));
+      //ring cadena = "select * from notas where IdNota=" + vcodigo;
+    //sultSet rs1 = sql.executeQuery(cadena);
+    //ile (rs1.next()) {
 
 %>
 
@@ -36,7 +32,7 @@ int vcodigo = Integer.parseInt(request.getParameter("IdNota"));
             includeHTML();
         </script>
 
-        <FORM name="form1"  ACTION ="notas1.jsp" METHOD="POST" >
+        <FORM name="form1"  ACTION ="ModNotas2.jsp" METHOD="POST" >
             <H2>Modificar - NOTAS</H2>
             <font face="Arial"> 
             <br>
@@ -46,32 +42,16 @@ int vcodigo = Integer.parseInt(request.getParameter("IdNota"));
                     <td>Materia</td>     
                     <td> 
                         <select name="materia" id="materia">
-                            <%                                
-                                //String ConsMaterias = "select * from materias";
-                                //ResultSet rsMaterias = sql.executeQuery(ConsMaterias);
-                                //while (rsMaterias.next()) {
-                                    int vcodigo = Integer.parseInt(request.getParameter("IdNota"));
-
-                                    String cadena = "select * from notas where IdNota=" + vcodigo;
-                                    ResultSet rs1 = sql.executeQuery(cadena);
-                                    while (rs1.next()) {
-                            %>
-                            <option selected="<%=rs1.getInt("codigo")%>"<%
-                            }
-                                rs1.close();
-                                
-                                String ConsMaterias = "select * from materias";
+                            <%                                String ConsMaterias = "select * from materias";
                                 ResultSet rsMaterias = sql.executeQuery(ConsMaterias);
                                 while (rsMaterias.next()) {
-                            
-                            %> value="<%=rsMaterias.getInt("codigo")%>"><%=rsMaterias.getString("nombre")%></option>                    
-                            <%
-                                
 
-                                
+                            %>
+                            <option value="<%=rsMaterias.getInt("codigo")%>"><%=rsMaterias.getString("nombre")%></option>                    
+                            <%
+
                                 }
                                 rsMaterias.close();
-                                //rs1.close();
 
                             %>
 
@@ -88,11 +68,12 @@ int vcodigo = Integer.parseInt(request.getParameter("IdNota"));
                                 String ConsEstudiantes = "select * from estudiantes";
                                 ResultSet rsEstudiantes = sql.executeQuery(ConsEstudiantes);
                                 while (rsEstudiantes.next()) {
+
                             %>
                             <option value="<%=rsEstudiantes.getInt("IdEstudiante")%>"><%=rsEstudiantes.getString("nombre")%></option>                    
                             <%
-                                }
 
+                                }
                                 rsEstudiantes.close();
 
                             %>
@@ -124,17 +105,24 @@ int vcodigo = Integer.parseInt(request.getParameter("IdNota"));
                     </td>
 
                 </TR>  
+                <%                    int vcodigo = Integer.parseInt(request.getParameter("IdNota"));
+
+                    String cadena = "select * from notas where IdNota=" + vcodigo;
+                    ResultSet rs1 = sql.executeQuery(cadena);
+                    while (rs1.next()) {
+                %>
+
                 <tr>       	
                     <td>Nota 1 Corte</td>
-                    <td><input name="Nota1" type="numeric" min="0" max="10" step="any" id="Nota1" placeholder="valor entre 0 a 10" size="20" title="Nota1"></td>
+                    <td><input name="Nota1" type="text" min="0" max="10" step="any" id="Nota1" placeholder="valor entre 0 a 10" size="20" title="Nota1" value ="<% out.println(rs1.getDouble("nota1"));%>"></td>
                 </tr>
                 <tr>       	
                     <td>Nota 2 Corte</td>
-                    <td><input name="Nota2" type="numeric" min="0" max="10" step="any" id="Nota2" placeholder="valor entre 0 a 10"   size="20" title="Nota2"></td>
+                    <td><input name="Nota2" type="text" min="0" max="10" step="any" id="Nota2" placeholder="valor entre 0 a 10"   size="20" title="Nota2" value ="<% out.println(rs1.getDouble("nota2"));%>"></td>
                 </tr> 
                 <tr>       	
                     <td>Nota 3 Corte</td>
-                    <td><input name="Nota3" type="numeric" min="0" max="10" step="any" id="Nota3" placeholder="valor entre 0 a 10"  size="20" title="Nota3"></td>
+                    <td><input name="Nota3" type="text" min="0" max="10" step="any" id="Nota3" placeholder="valor entre 0 a 10"  size="20" title="Nota3" value ="<% out.println(rs1.getDouble("nota3"));%>"></td>
                 </tr> 
 
 
@@ -145,9 +133,9 @@ int vcodigo = Integer.parseInt(request.getParameter("IdNota"));
             </table>
         </FORM>
 
-        <%                                
-            //rs1.close();
-%>
+        <%           }
+            rs1.close();
+        %>
         <br>
         <div w3-include-html="footer.html"></div> 
     </body>

@@ -55,7 +55,7 @@
 
                 <tr>
                     <td>Telefono</td>
-                    <td><input name="Telefono" type="text"  id="Telefono" value ="<% out.println(rs1.getInt("telefono"));%>"> </td>
+                    <td><input name="Telefono" type="text"  id="Telefono" value ="<% out.println(rs1.getString("telefono"));%>"> </td>
                 </tr>
 
                 <tr>

@@ -45,7 +45,7 @@
                 </TR> 
                 <tr>       	
                     <td>Nombre Materia</td>
-                    <td><input name="NombreMateria" type="text"  id="NombreMateria"  size="20" title="NombreMateria"  value ="<% out.println(rs1.getInt("nombre"));%>"></td>
+                    <td><input name="NombreMateria" type="text"  id="NombreMateria"  size="20" title="NombreMateria"  value ="<% out.println(rs1.getString("nombre"));%>"></td>
                 </TR>  	
                 <tr>       	
                     <td>Intensidad</td>

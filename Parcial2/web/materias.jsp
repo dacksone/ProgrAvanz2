@@ -5,7 +5,7 @@
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="conexion.jsp" %>
-<%@include file="consultas.jsp" %>
+
 <!-- Captura de valores del formulario -->
 <%        int vCodigo = Integer.parseInt(request.getParameter("Codigo"));
     String vNombreMateria = request.getParameter("NombreMateria");
