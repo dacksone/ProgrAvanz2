@@ -1,5 +1,5 @@
 <%-- 
-    Document   : notas
+    Document   : notas1
     Created on : 2/05/2020, 07:36:55 AM
     Author     : Juan Rodriguez
 --%>
@@ -7,8 +7,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="conexion.jsp" %>
 
-<%        int vCodigo = Integer.parseInt(request.getParameter("Codigo"));
-    String vMateria = request.getParameter("Materia");
+<%        
+    int vMateria = Integer.parseInt(request.getParameter("materia"));
+    int vEstudiante = Integer.parseInt(request.getParameter("estudiante"));
+    int VProfesor = Integer.parseInt(request.getParameter("profesor"));
+    //String vEstudiante = request.getParameter("estudiante");
+    
     double vNota1 = Double.parseDouble(request.getParameter("Nota1"));
     double vNota2 = Double.parseDouble(request.getParameter("Nota2"));
     double vNota3 = Double.parseDouble(request.getParameter("Nota3"));
@@ -20,11 +24,17 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link rel="stylesheet" href="estilosJSP.css">
         <link rel="stylesheet" href="estilos.css">
+        <link rel="stylesheet" href="estilosJSP.css">
         <script type="text/javascript" src="javascript.js"></script>
     </head>
     <body>
+        <div w3-include-html="header.html"></div> 
+
+        <script>
+            includeHTML();
+        </script>
+
         <div id="PrimerContenedor" >
             <header>
                 <h1 >Resultados de formulario Notas </h1>
@@ -38,8 +48,9 @@
                 <table border="2">
                     <tr>
 
-                        <th>Codigo de materia</th>
-                        <th>Nombre de Materia</th>
+                        <th>Materia</th>
+                        <th>Estudiante</th>
+                        <th>Profesor</th>                        
                         <th>Nota1</th>
                         <th>Nota2</th>
                         <th>Nota3</th>
@@ -52,15 +63,22 @@
                         <!-- Codigo de materia -->
                         <td>
                             <%
-                                vCodigo = Integer.parseInt(request.getParameter("Codigo"));
-                                out.println(vCodigo);
+                                //vCodigo = Integer.parseInt(request.getParameter("Codigo"));
+                                out.println(vMateria);
                             %>                
                         </td>
-                        <!--Nombre de Materia -->
+                        <!--Codigo de Estudiante -->
                         <td>
                             <%
-                                vMateria = request.getParameter("Materia");
-                                out.println(vMateria);
+                                //vMateria = request.getParameter("Materia");
+                                out.println(vEstudiante);
+                            %>                
+                        </td>
+                        <!--Codigo de Profesor -->
+                        <td>
+                            <%
+                                //vMateria = request.getParameter("Materia");
+                                out.println(VProfesor);
                             %>                
                         </td>
                         <!--Nota1 -->
@@ -91,30 +109,24 @@
                 <br>
                 <a>
                     <%
-                        String consultar = "select IdEstudiante from estudiantes where IdEstudiante =" + vCodigo;
-                        int ID = 0;
-                        ResultSet data = sql.executeQuery(consultar);
-                        while (data.next()) {
-                            ID = data.getInt(1);
-                        }
-                        if (vCodigo == ID) {
-                            out.println("el codigo " + ID + " ya se encuentra registrado");
-
-                        } else {
+                        
 
                             //Creacion de consulta de acuerdo a los valores anteriores del formulario
-                            String statement = "insert into estudiantes(IdEstudiante,nombre,apellido,telefono,correo) values (" + vCodigo + ",'" + vNombres + "','" + vApellido + "','" + vTelefono + "','" + vCorreo + "')";
+                            String statement = "insert into notas(IdEstudiante,IdProfesor,codigo,nota1,nota2,nota3) values (" + vEstudiante + "," + VProfesor + ",'" + vMateria + "'," + vNota1 + "," + vNota2 + "," + vNota3 + ")";
                             //Executar consulta
                             sql.executeUpdate(statement);
+                            
+                            
                             //Imprimir confirmacion
-                            out.println("Usuario " + vNombres + " " + vApellido + " registrado");
+                            out.println("La Nota ha sido registrada");
 
-                        }
+                        
                     %>
                 </a>
+                <br>
                 <a href="notasold.html">Regresar al formulario </a>
                 <br>
-                <a href="indexold.html">Regresar al Menu Principal </a>
+                <div w3-include-html="footer.html"></div> 
                 <div>
                     </body>
                     </html>

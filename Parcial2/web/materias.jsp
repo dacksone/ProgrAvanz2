@@ -15,7 +15,7 @@
 %>
 
 
-<!DOCTYPE html>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -26,11 +26,7 @@
         <script type="text/javascript" src="javascript.js"></script>
     </head>
     <body>
-        <div w3-include-html="header.html"></div> 
-
-        <script>
-            includeHTML();
-        </script>
+        <%@include file="header.html" %>
 
 
         <div id="PrimerContenedor" >

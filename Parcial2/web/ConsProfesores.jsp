@@ -31,6 +31,7 @@
         out.println("<th>Telefono</th>");
         out.println("<th>Correo</th>");
         out.println("<th>Especialidad</th>");
+        out.println("<th>Opciones</th>");
         out.println("</tr>");
 
     while (rs.next()) {
@@ -75,6 +76,13 @@
         out.println("<td>");
 
         out.println(rs.getString("especialidad"));
+
+        out.println("</td>");
+         out.println("<!--Opciones -->");
+        out.println("<td>");
+
+        out.println("<a href=ModProfesores1.jsp?IdProfesor=" + rs.getInt("IdProfesor") + "> Modificar </a>"+
+                    "<a href=ElimProfesores.jsp?IdProfesor=" + rs.getInt("IdProfesor") + ">    Eliminar </a>");
 
         out.println("</td>");
 

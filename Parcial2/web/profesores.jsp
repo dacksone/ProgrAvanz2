@@ -19,14 +19,10 @@
         <%@include file="conexion.jsp" %>
 
 
+<%@include file="header.html" %>
 
 
-
-        <div w3-include-html="header.html"></div> 
-
-        <script>
-            includeHTML();
-        </script>
+        
 
         <FORM name="form1"  ACTION ="profesores1.jsp" METHOD="POST" onSubmit="return Validar(this)">
             <H2>CAPTURA DE DATOS - PROFESOR</H2>

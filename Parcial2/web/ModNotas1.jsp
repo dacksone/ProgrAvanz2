@@ -1,23 +1,22 @@
 <%-- 
-    Document   : notas
-    Created on : 2/05/2020, 07:36:55 AM
+    Document   : ModNotas1
+    Created on : 29/05/2020, 11:16:24 PM
     Author     : Juan Rodriguez
 --%>
+
+
 <%@include file="conexion.jsp" %>
 
+<%     
+    /*
+int vcodigo = Integer.parseInt(request.getParameter("IdNota"));
 
-<%//consulta  materias                                
-    //String ConsMaterias = "select * from materias";
-    //ResultSet rsMaterias = sql.executeQuery(ConsMaterias);
-    //consulta  estudiantes                                
-    //String ConsEstudiantes = "select * from estudiantes";
-    //ResultSet rsEstudiantes = sql.executeQuery(ConsEstudiantes);
-    //consulta  profesores                                
-    //String ConsProfesores = "select * from profesores";
-    //ResultSet rsProfesores = sql.executeQuery(ConsProfesores);
+     String cadena = "select * from notas where IdNota=" + vcodigo;
+     ResultSet rs1 = sql.executeQuery(cadena);
+     while (rs1.next()) {
+     */
 
 %>
-
 
 
 <html>
@@ -31,10 +30,14 @@
     </head>
     <body>
 
-        <%@include file="header.html" %>
+        <div w3-include-html="header.html"></div> 
+
+        <script>
+            includeHTML();
+        </script>
 
         <FORM name="form1"  ACTION ="notas1.jsp" METHOD="POST" >
-            <H2>CAPTURA DE DATOS - NOTAS</H2>
+            <H2>Modificar - NOTAS</H2>
             <font face="Arial"> 
             <br>
             <br>	   
@@ -43,15 +46,32 @@
                     <td>Materia</td>     
                     <td> 
                         <select name="materia" id="materia">
-                            <%                                String ConsMaterias = "select * from materias";
+                            <%                                
+                                //String ConsMaterias = "select * from materias";
+                                //ResultSet rsMaterias = sql.executeQuery(ConsMaterias);
+                                //while (rsMaterias.next()) {
+                                    int vcodigo = Integer.parseInt(request.getParameter("IdNota"));
+
+                                    String cadena = "select * from notas where IdNota=" + vcodigo;
+                                    ResultSet rs1 = sql.executeQuery(cadena);
+                                    while (rs1.next()) {
+                            %>
+                            <option selected="<%=rs1.getInt("codigo")%>"<%
+                            }
+                                rs1.close();
+                                
+                                String ConsMaterias = "select * from materias";
                                 ResultSet rsMaterias = sql.executeQuery(ConsMaterias);
                                 while (rsMaterias.next()) {
-                            %>
-                            <option value="<%=rsMaterias.getInt("codigo")%>"><%=rsMaterias.getString("nombre")%></option>                    
+                            
+                            %> value="<%=rsMaterias.getInt("codigo")%>"><%=rsMaterias.getString("nombre")%></option>                    
                             <%
-                                }
+                                
 
+                                
+                                }
                                 rsMaterias.close();
+                                //rs1.close();
 
                             %>
 
@@ -124,7 +144,12 @@
                 </tr>
             </table>
         </FORM>
+
+        <%                                
+            //rs1.close();
+%>
         <br>
         <div w3-include-html="footer.html"></div> 
     </body>
 </html>
+

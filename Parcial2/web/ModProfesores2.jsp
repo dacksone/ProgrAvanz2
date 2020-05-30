@@ -1,9 +1,8 @@
 <%-- 
-    Document   : profesores1
-    Created on : 2/05/2020, 07:41:36 AM
+    Document   : ModProfesores2
+    Created on : 29/05/2020, 08:56:38 PM
     Author     : Juan Rodriguez
 --%>
-
 
 
 
@@ -12,7 +11,8 @@
 
 
 <!-- Captura de valores del formulario -->
-<%        int vCodigo = Integer.parseInt(request.getParameter("Codigo"));
+<%       
+    int vCodigo = Integer.parseInt(request.getParameter("Codigo"));
     String vNombres = request.getParameter("Nombres");
     String vApellido = request.getParameter("Apellidos");
     String vTelefono = request.getParameter("Telefono");
@@ -38,7 +38,9 @@
         </script>
 
         <div id="PrimerContenedor" >
-            
+            <header>
+                <h1 >Resultados de formulario profesores </h1>
+            </header>
 
             <div>
 
@@ -109,32 +111,24 @@
                 <br>
                 <a>
                     <%
-                        String consultar = "select IdProfesor from profesores where IdProfesor =" + vCodigo;
-                        int ID = 0;
-                        ResultSet data = sql.executeQuery(consultar);
-                        while (data.next()) {
-                            ID = data.getInt(1);
-                        }
-                        if (vCodigo == ID) {
-                            out.println("el codigo " + ID + " ya se encuentra registrado");
-
-                        } else {
+                        
 
                             //Creacion de consulta de acuerdo a los valores anteriores del formulario
-                            String statement = "insert into profesores(IdProfesor,nombre,apellido,telefono,correo,especialidad) values (" + vCodigo + ",'" + vNombres + "','" + vApellido + "','" + vTelefono + "','" + vCorreo + "','" + vEspecialidad + "')";
+                            String statement = "update profesores set IdProfesor ="+vCodigo+",nombre='"+vNombres+"',apellido='"+vApellido+ "',telefono="+vTelefono +",correo='"+vCorreo +"' where IdProfesor ="+vCodigo;
+                            //update estudiantes set IdEstudiante ="+vCodigo+",nombre='"+vNombres+"',apellido='"+vApellido+ "',telefono="+vTelefono +",correo='"+vCorreo +"' where idproducto ="+vcodigo;
                             //Executar consulta
                             sql.executeUpdate(statement);
                             //Imprimir confirmacion
-                            out.println("Profesor " + vNombres + " " + vApellido + " ha sido registrado");
+                            out.println("Profesor: " + vNombres + " " + vApellido + " ha sido actualizado");
 
-                        }
+                        
                     %>
 
                 </a>
                 <br>
 
 
-                <a href="profesores.jsp">Regresar al formulario </a>
+                <a href="ConsProfesores.jsp">Regresar al formulario </a>
                 <br>
                 <div w3-include-html="footer.html"></div> 
                 <div>
